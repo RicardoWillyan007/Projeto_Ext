@@ -1,6 +1,5 @@
 from django.shortcuts import render
 
-<<<<<<< HEAD
 def perfil(request):
     return render(request, 'perfil.html')
 
