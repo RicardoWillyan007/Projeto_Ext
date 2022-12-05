@@ -9,7 +9,13 @@
 <body>
     <h1>Página inicial</h1>
 
+    {% if not user.is_authenticated %}
     <p><a href="{% url 'login' %}">Login</a></p>
+    <p><a href="{% url 'registro' %}">Registro</a></p>
+    {% endif %}
+
+    {% if user.is_authenticated %}
     <p><a href="{% url 'perfil' %}">Perfil</a></p>
+    {% endif %}
 </body>
 </html>
