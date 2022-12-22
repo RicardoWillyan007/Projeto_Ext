@@ -4,9 +4,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from .forms import UsuarioForm 
 
-def login(request):
-    return render(request, 'login.html')
-
 def home(request):
     return render(request, 'index.html')
 
