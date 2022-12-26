@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core.views import home, perfil, autenticacao, desconectar, registro
-from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('login/', autenticacao, name='login'),
