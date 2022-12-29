@@ -12,19 +12,19 @@
     
      <form method="POST">
         {% csrf_token %}
-        <!-- -- >{{form}}<-->
+         <!-- {{form}}  -->
         
-        <p>Usuário: {{form.matricula}}</p>
+        <p>Matrícula: {{form.username}}</p>
         <p>E-mail: {{form.email}}</p>
         <p>Senha: {{form.password1}}</p>
         <p>Repetir Senha: {{form.password2}}</p>
         <p>CPF: {{form.cpf}}</p>
-        <p>Idade: {{form.idade}}</p>
         <p>Nome: {{form.nome}}</p>
         <p>Data de Nascimento: {{form.nascimento}}</p>
         <p>Telefone: {{form.telefone}}</p> 
-     </form>
         <p><input type="submit" value="Cadastrar"></p>
+     </form>
+        
     
     <p><a href="{% url 'home' %}"><button>Voltar</button></a></p>
 </body>
