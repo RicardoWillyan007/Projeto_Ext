@@ -17,6 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from core.views import home, perfil, autenticacao, desconectar, registro
 
+from core.views import editar_usuario, remover_usuario
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('login/', autenticacao, name='login'),
     path('logout/', desconectar, name='logout'),
@@ -24,4 +28,7 @@ urlpatterns = [
     path('perfil/', perfil, name='perfil'),
     path('registro/', registro, name='registro'),
     path('admin/', admin.site.urls),
+
+    path('curso_editar/<int:id>/', editar_usuario, name='editar_usuario'),
+    path('curso_remover/<int:id>/', remover_usuario, name='remover_usuario'),
 ]
