@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from .forms import UsuarioForm
-from .models import Usuario
+from .forms import UsuarioForm, AreaForm, VagaForm
+from .models import Vagas, Area
 
 def home(request):
     return render(request, 'index.html')
@@ -12,37 +12,78 @@ def perfil(request):
     return render(request, 'perfil.html')
 
 
-
-#listar editar e remover NÃO PRONTO
-def listar_usuario(request):
-    usuarios = Usuario.objects.all()
-    contexto = {
-        'todos_usuarios': usuarios
-    }
-    return render(request, 'cursos.html', contexto)
-
-def editar_usuario(request, id):
-    usuario = Usuario.objects.get(pk=id)
-    form = UsuarioForm(request.POST or None, instance=usuario)
-
+#Areas
+def area_cadastrar(request):
+    form = AreaForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-        return redirect('listar_usuario')
+        return redirect('areas_listar')
+    contexto = {
+        'form': form
+    }
+    return render(request, 'cadastrar_area.html', contexto)
+
+def area_listar(request):
+    areas = Area.objects.all()
+    contexto = {
+        'listar_areas': areas
+    } 
+    return render(request, 'area.html', contexto)
+
+def area_editar(request, id):
+    areas = Area.objects.get(pk=id)
+
+    form = AreaForm(request.POST or None, instance=areas)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_areas')
 
     contexto = {
-        'form_usuario': form
+        'form': form
     }
+    return render(request, 'cadastrar_area.html', contexto)
 
-    return render(request, 'curso_cadastrar.html', contexto)  
-
-def remover_usuario(request, id):
-    usuario = Usuario.objects.get(pk=id)
-    usuario.delete()
-    return redirect('listar_usuarios')
-
+def area_remover(request, id):
+    areas = Area.objects.get(pk=id)
+    areas.delete() 
+    return redirect('areas_listar')
 
 
+#Vagas
+def vaga_cadastrar(request):
+    form = VagaForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return redirect('vagas_listar')
+    contexto = {
+        'form': form
+    }
+    return render(request, 'cadastrar_vagas.html', contexto)
 
+def vaga_listar(request):
+    vagas = Vagas.objects.all()
+    contexto = {
+        'listar_vagas': vagas
+    } 
+    return render(request, 'vaga.html', contexto)
+
+def vaga_editar(request, id):
+    vagas = Vagas.objects.get(pk=id)
+
+    form = VagaForm(request.POST or None, instance=vagas)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_vagas')
+
+    contexto = {
+        'form': form
+    }
+    return render(request, 'cadastrar_vaga.html', contexto)
+
+def vaga_remover(request, id):
+    areas = Vagas.objects.get(pk=id)
+    areas.delete() 
+    return redirect('vagas_listar')
 
 
 
