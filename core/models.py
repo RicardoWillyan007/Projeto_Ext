@@ -2,34 +2,44 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class Usuario(AbstractUser):
-    username = models.CharField('matricula', max_length=15, unique=True)
+    matricula = models.CharField('matricula', max_length=15, unique=True)
     nome = models.CharField('nome', max_length=100)
     nascimento = models.DateField('nascimento')
     telefone = models.CharField('telefone', max_length=100)
-    cpf = models.CharField('cpf', max_length=100)
+    cpf = models.CharField('cpf', max_length=11, unique=True)
+    username = models.CharField(null=True, max_length=10) #Desabilitando username
 
-    USERNAME_FIELD = 'username'
+    USERNAME_FIELD = 'cpf'
 
-class Vagas(AbstractUser):
-    id = models.OneToOneField.related_query_name("self")
+
+
+#Ordem de implementação dos CRUDS: Area, Projeto, Vagas
+
+
+class Area(models.Model):
+    nome = models.CharField('nome', max_length=100)
+
+class Projeto(models.Model):
+    titulo = models.CharField('titulo', max_length=100)
+    resumo = models.CharField('resumo', max_length=100)
+    area = models.ForeignKey(Area, on_delete=models.PROTECT)
+    usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
+
+class Vagas(models.Model):
     descricao = models.CharField('descricao', max_length=100)
     quantidade = models.IntegerField('quantidade')
     perfil = models.CharField('perfil', max_length=100)
-    CH = models.IntegerField('CH')
+    ch = models.IntegerField('CH')
     data_inicio = models.DateField('data_inicio', max_length=100)
     data_fim = models.DateField('data_fim', max_length=100)
+    projeto = models.ForeignKey(Projeto, on_delete=models.PROTECT)
 
-class Area(AbstractUser):
-    id = models.IntegerField('id', primary_key=True)
-    nome = models.CharField('nome', max_length=100)
 
-class Curso(AbstractUser):
-    id = models.IntegerField('id', primary_key=True)
-    nome = models.CharField('nome', max_length=100)
 
-class Projeto(AbstractUser):
-     id = models.IntegerField('id', primary_key=True)
-     titulo = models.CharField('titulo', max_length=100)
-     resumo = models.CharField('resumo', max_length=100)
-     responsavel = models.CharField('responsavel', max_length=100)
-     vagas = models.IntegerField('vagas')
+# class Curso(models.Model):
+#     nome = models.CharField('nome', max_length=100)
+
+
+
+
+    
