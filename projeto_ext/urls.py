@@ -31,14 +31,14 @@ urlpatterns = [
 
 
     path('add_area/', area_cadastrar, name='cadastrar_area'),
-    path('listar_area/', area_listar, name='cadastrar_area'),
-    path('editar_area/<int:id>/', area_editar, name='cadastrar_area'),
-    path('remover_area/<int:id>/', area_remover, name='cadastrar_area'),
+    path('listar_area/', area_listar, name='listar_area'),
+    path('editar_area/<int:id>/', area_editar, name='editar_area'),
+    path('remover_area/<int:id>/', area_remover, name='remover_area'),
 
 
     path('add_vaga/', vaga_cadastrar, name='cadastrar_vaga'),
-    path('listar_vaga/', vaga_listar, name='cadastrar_vaga'),
-    path('editar_vaga/<int:id>/', vaga_editar, name='cadastrar_vaga'),
-    path('remover_vaga/<int:id>/', vaga_remover, name='cadastrar_vaga'),
+    path('listar_vaga/', vaga_listar, name='listar_vaga'),
+    path('editar_vaga/<int:id>/', vaga_editar, name='editar_vaga'),
+    path('remover_vaga/<int:id>/', vaga_remover, name='remover_vaga'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

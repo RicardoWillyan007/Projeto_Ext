@@ -9,6 +9,23 @@
     <title>Adicionar Vagas</title>
 </head>
 <body>
-    
+    <div class="row m-5 text-center ">
+        <h1>Cadastrar Vagas</h1>
+        <p class="cadastrar"><a href="{% url 'home'%}">Voltar a pagina Inicial</a></p>
+      </div>
+      
+      <div class="row m-3 text-center">
+        <form  class="form" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <p>{{form.descricao.label}}: {{form.descricao}}</p>
+          <p>{{form.quantidade.label}}: {{form.quantidade}}</p>
+          <p>{{form.perfil.label}}: {{form.perfil}}</p>
+          <p>{{form.ch.label}}: {{form.ch}}</p>
+          <p>{{form.data_inicio.label}}: {{form.data_inicio}}</p>
+          <p>{{form.data_fim.label}}: {{form.data_fim}}</p>
+          <p>{{form.projeto.label}}: {{form.projeto}}</p>
+          <button type="submit">Salvar</button>
+        </form>
+      </div>
 </body>
 </html>

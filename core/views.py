@@ -17,7 +17,7 @@ def area_cadastrar(request):
     form = AreaForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-        return redirect('areas_listar')
+        return redirect('listar_area')
     contexto = {
         'form': form
     }
@@ -26,7 +26,7 @@ def area_cadastrar(request):
 def area_listar(request):
     areas = Area.objects.all()
     contexto = {
-        'listar_areas': areas
+        'listar_area': areas
     } 
     return render(request, 'area.html', contexto)
 
@@ -36,7 +36,7 @@ def area_editar(request, id):
     form = AreaForm(request.POST or None, instance=areas)
     if form.is_valid():
         form.save()
-        return redirect('listar_areas')
+        return redirect('listar_area')
 
     contexto = {
         'form': form
@@ -46,7 +46,7 @@ def area_editar(request, id):
 def area_remover(request, id):
     areas = Area.objects.get(pk=id)
     areas.delete() 
-    return redirect('areas_listar')
+    return redirect('listar_area')
 
 
 #Vagas

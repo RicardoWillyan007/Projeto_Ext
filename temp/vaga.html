@@ -9,6 +9,38 @@
     <title>Vagas</title>
 </head>
 <body>
-    
+    <div class="row m-5 text-center">
+        <h1>Vagas</h1>
+        <p class="cadastrar"><a href="{% url 'home'%}">Voltar a pagina Inicial</a></p>
+      </div>
+      
+      <div class="row m-5">
+        <p class="cadastrar"><a href="{% url 'cadastrar_vaga'%}">Cadastrar Vagas</a></p>
+        <p class="lista">Lista de Vagas</p>
+      {% for vagas in listar_vaga %}
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col-2">Descrição</th>
+        <th scope="col-12">Quantidade</th>
+        <th scope="col-12">Perfil</th>
+        <th scope="col-12">CH</th>
+        <th scope="col-12">Data_Início</th>
+        <th scope="col-12">Data_Fim</th>
+        <th scope="col-12">Projeto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="palavras">
+        <td><a href="{% url 'editar_vaga' area.id %}">EDITAR</a>
+            <a href="{% url 'remover_vaga' area.id %}">DELETAR</a></td>
+      </tr>
+    </tbody>
+    </table>
+      
+      {% empty %}
+      <p>Nenhuma vaga cadastrada</p>
+      {% endfor %}
+      </div>
 </body>
 </html>

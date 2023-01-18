@@ -6,9 +6,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Áreas Cadastradas</title>
 </head>
 <body>
-    
+    <div class="row m-5 text-center">
+        <h1>Filmes</h1>
+        <p class="cadastrar"><a href="{% url 'home'%}">Voltar a pagina Inicial</a></p>
+      </div>
+      
+      <div class="row m-5">
+        <p class="cadastrar"><a href="{% url 'cadastrar_area'%}">Cadastrar Área</a></p>
+        <p class="lista">Lista de Áreas Cadastrados</p>
+      {% for areas in listar_area %}
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col-2">Nome</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="palavras">
+        <td><a href="{% url 'editar_area' area.id %}">EDITAR</a>
+            <a href="{% url 'remover_area' area.id %}">DELETAR</a></td>
+      </tr>
+    </tbody>
+    </table>
+      
+      {% empty %}
+      <p>Nenhum Filme cadastrado</p>
+      {% endfor %}
+      </div>
 </body>
 </html>
