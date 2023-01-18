@@ -24,9 +24,9 @@ def area_cadastrar(request):
     return render(request, 'cadastrar_area.html', contexto)
 
 def area_listar(request):
-    areas = Area.objects.all()
+    area = Area.objects.all()
     contexto = {
-        'listar_area': areas
+        'listar_area': area
     } 
     return render(request, 'area.html', contexto)
 

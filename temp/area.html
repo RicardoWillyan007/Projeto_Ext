@@ -10,14 +10,14 @@
 </head>
 <body>
     <div class="row m-5 text-center">
-        <h1>Filmes</h1>
+        <h1>Áreas</h1>
         <p class="cadastrar"><a href="{% url 'home'%}">Voltar a pagina Inicial</a></p>
       </div>
       
       <div class="row m-5">
         <p class="cadastrar"><a href="{% url 'cadastrar_area'%}">Cadastrar Área</a></p>
-        <p class="lista">Lista de Áreas Cadastrados</p>
-      {% for areas in listar_area %}
+        <p class="lista">Lista de Áreas Cadastradas</p>
+      {% for area in listar_area %}
     <table class="table">
     <thead>
       <tr>
