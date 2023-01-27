@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +9,20 @@
     <title>Cadastrar Projeto</title>
 </head>
 <body>
-    
+    <div class="row m-5 text-center ">
+        <h1>Cadastrar Projeto</h1>
+        <p class="cadastrar"><a href="{% url 'home'%}">Voltar a pagina Inicial</a></p>
+      </div>
+      
+      <div class="row m-3 text-center">
+        <form  class="form" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <p>{{form.titulo.label}}: {{form.titulo}}</p>
+          <p>{{form.resumo.label}}: {{form.resumo}}</p>
+          <p>{{form.area.label}}: {{form.area}}</p>
+          <p>{{form.usuario.label}}: {{form.usuario}}</p>
+          <button type="submit">Salvar</button>
+        </form>
+      </div>
 </body>
 </html>
