@@ -10,29 +10,75 @@
     rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css.css' %}"/>
     <title>Document</title>
+    <style type="text/css">
+      .coluna {
+        background: #008000;
+        width: 400px;
+        height: 400px;
+        border-radius: 10px;
+        margin: 10px;
+        margin-top: 50px;
+        text-align: center;
+        color: white;
+      }
+  
+      .rodape {
+        background: black;
+        height: 300px;
+        width: 100%;
+      }
+  
+      .altura {
+        min-height: 100hw;
+      }
+    </style>
 </head>
 <body>
-    <h1>Página inicial</h1>
-    <div class="container text-center">
-        <div class="row align-items-start">
-          <div class="col">
-            One of three columns
-          </div>
-          <div class="col">
-            One of three columns
-          </div>
-          <div class="col">
-            One of three columns
-          </div>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'registro' %}">Registrar</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
       </div>
-    {% if not user.is_authenticated %}
+    </div>
+  </nav>
+    
+  <div class="container justify-content-md-center altura">
+    <div class="row">
+      <a href="{% url 'cadastrar_area' %}"><div class="coluna col-12 col-md-6">
+        <p>CADASTRAR ÁREA</p>
+      </div></a>
+      <a href="{% url 'cadastrar_vaga' %}"><div class="coluna col-12 col-md-6">
+        <p>CADASTRAR VAGA</p>
+      </div></a>
+      <a href="{% url 'cadastrar_area' %}"><div class="coluna col-12 col-md-6">
+        <p>CADASTRAR PROJETO</p>
+      </div></a>
+    </div>
+  </div>
+
+    <!-- {% if not user.is_authenticated %}
     <p><a href="{% url 'login' %}">Login</a></p>
     <p><a href="{% url 'registro' %}">Registro</a></p>
     {% endif %}
 
     {% if user.is_authenticated %}
     <p><a href="{% url 'perfil' %}">Perfil</a></p>
-    {% endif %}
+    {% endif %} -->
 </body>
 </html>
