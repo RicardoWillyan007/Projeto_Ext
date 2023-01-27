@@ -31,6 +31,12 @@
       .altura {
         min-height: 100hw;
       }
+
+      .distribuir
+      {
+        display: contents;
+      }
+      
     </style>
 </head>
 <body>
@@ -60,14 +66,17 @@
     
   <div class="container justify-content-md-center altura">
     <div class="row">
-      <a href="{% url 'cadastrar_area' %}"><div class="coluna col-12 col-md-6">
-        <p>CADASTRAR ÁREA</p>
+      <a href="{% url 'cadastrar_area' %}" class="distribuir">
+      <div class="coluna col-12 col-md-6">
+         <p>CADASTRAR ÁREA</p>
       </div></a>
-      <a href="{% url 'cadastrar_vaga' %}"><div class="coluna col-12 col-md-6">
-        <p>CADASTRAR VAGA</p>
+      <a href="{% url 'cadastrar_vaga' %}" class="distribuir">
+      <div class="coluna col-12 col-md-6">
+         <p>CADASTRAR VAGA</p>
       </div></a>
-      <a href="{% url 'cadastrar_area' %}"><div class="coluna col-12 col-md-6">
-        <p>CADASTRAR PROJETO</p>
+      <a href="{% url 'cadastrar_projeto' %}" class="distribuir">
+      <div class="coluna col-12 col-md-6">
+          <p>CADASTRAR PROJETO</p>
       </div></a>
     </div>
   </div>
