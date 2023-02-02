@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
 {% load widget_tweaks %}
 <html lang="en">
@@ -6,10 +7,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
+    <title>Cadastro</title>
 </head>
 <body>
-    <h1>Registro de Usuário</h1>
+    {% block conteudo %}
+    <h1>Cadastro de Usuário</h1>
     
     
      <form method="POST">
@@ -29,5 +31,6 @@
         
     
     <p><a href="{% url 'home' %}"><button>Voltar</button></a></p>
+    {% endblock %}
 </body>
 </html>

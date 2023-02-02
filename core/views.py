@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from .forms import UsuarioForm, AreaForm, VagaForm
-from .models import Vagas, Area
+from .forms import UsuarioForm, AreaForm, VagaForm, ProjetoForm
+from .models import Vagas, Area, Projeto
 
 def home(request):
     return render(request, 'index.html')
@@ -85,7 +85,41 @@ def vaga_remover(request, id):
     areas.delete() 
     return redirect('vagas_listar')
 
+#projetos
+def projeto_cadastrar(request):
+    form=ProjetoForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_projeto')
+    contexto = {
+        'form': form
+    }
+    return render(request, 'cadastrar_projeto.html', contexto)
 
+def projeto_listar(request):
+    projeto = Projeto.objects.all()
+    contexto = {
+        'listar_projeto': projeto
+    }
+    return render(request, 'area.html', contexto)
+
+def projeto_editar(request, id):
+    projetos = Projeto.objects.get(pk=id)
+
+    form = ProjetoForm(request.POST or None, instance=projetos)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_projeto')
+
+    contexto = {
+        'form' : form
+    }
+    return render(request, 'cadastrar_projeto.html', contexto)
+
+def projeto_remover(request, id):
+    projetos = Projeto.objects.get(pk=id)
+    projetos.delete()
+    return redirect('listar_area')
 
 def autenticacao(request):
     if request.POST:

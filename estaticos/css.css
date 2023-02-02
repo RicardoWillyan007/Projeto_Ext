@@ -1,22 +1,41 @@
-.cor{
-          background-color: rgb(83, 117, 119);
-          border-radius: 8px;
-      }
-      body{
-        background-color: #8cc59a ;
-        background-repeat:no-repeat;
-        background-attachment: fixed;
-    }
-h1{
-    font-family: Arial;
-    color:white;
+.coluna {
+    background: #008000;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    margin: 10px;
+    margin-top: 50px;
     text-align: center;
-    text-indent: 20px;
-    word-spacing: 2px;
-    font-weight: 800;
-    }
-p{
-        color:white;
+    color: white;
+  }
 
-    }
+.rodape {
+    background:#5ebb5e;
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    line-height: 200px;
+    margin-top: 200px;
+  }
+
+.altura {
+    min-height: 100;
+  }
+
+.coluna {
+    background: #008000;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    margin: 10px;
+    margin-top: 50px;
+    text-align: center;
+    color: white;
+}
+
+.distribuir{
+    display: contents;
+  }
+
     

@@ -1,84 +1,33 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
 {% load widget_tweaks %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
-    rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'css.css' %}"/>
-    <title>Document</title>
-    <style type="text/css">
-      .coluna {
-        background: #008000;
-        width: 400px;
-        height: 400px;
-        border-radius: 10px;
-        margin: 10px;
-        margin-top: 50px;
-        text-align: center;
-        color: white;
-      }
-  
-      .rodape {
-        background: black;
-        height: 300px;
-        width: 100%;
-      }
-  
-      .altura {
-        min-height: 100hw;
-      }
-    </style>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Home</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'registro' %}">Registrar</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+
+{% block conteudo %}
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-4">
+        <img src="https://i.ytimg.com/vi/rz5hm6OrLqA/hqdefault.jpg" class="img-fluid" alt="IFRN - Campus Canguaretama" />
+      </div>
+      <div class="col-8">
+        <p>Com uma área total de 106.796,92 m2 e uma área construída de 8701,65 m2, o Campus está localizado na cidade de Canguaretama-RN, na microrregião do Litoral Sul do estado, mesorregião do Leste Potiguar. O município tem uma população de 30.916 habitantes, com área territorial de 245 km² e fica distante 67 km da capital do estado, Natal.</p>
+        <p>O Campus tem foco de atuação estabelecido nas áreas de Eletromecânica, Turismo e Informática, contando com um número de 16 salas de aula e 23 laboratórios. A escolha dessas áreas foi realizada junto à comunidade local, quando detectou-se uma carência de profissionais com qualificação nas mesmas para atender à vocação turística da cidade e às indústrias instaladas na região. Além de oferecer cursos técnicos, o Campus Canguaretama também desenvolverá ações de extensão e pesquisa que contribuam para o desenvolvimento social e econômico da região, integrando as ações do Campus com a comunidade e sociedade local.</p>
       </div>
     </div>
-  </nav>
-    
+</div>
   <div class="container justify-content-md-center altura">
     <div class="row">
-      <a href="{% url 'cadastrar_area' %}"><div class="coluna col-12 col-md-6">
-        <p>CADASTRAR ÁREA</p>
+      <a href="{% url 'cadastrar_area' %}" class="distribuir">
+      <div class="coluna col-12 col-md-6">
+         <p>CADASTRAR ÁREA</p>
       </div></a>
-      <a href="{% url 'cadastrar_vaga' %}"><div class="coluna col-12 col-md-6">
-        <p>CADASTRAR VAGA</p>
+      <a href="{% url 'cadastrar_vaga' %}" class="distribuir">
+      <div class="coluna col-12 col-md-6">
+         <p>CADASTRAR VAGA</p>
       </div></a>
-      <a href="{% url 'cadastrar_area' %}"><div class="coluna col-12 col-md-6">
-        <p>CADASTRAR PROJETO</p>
+      <a href="{% url 'cadastrar_projeto' %}" class="distribuir">
+      <div class="coluna col-12 col-md-6">
+          <p>CADASTRAR PROJETO</p>
       </div></a>
     </div>
   </div>
-
-    <!-- {% if not user.is_authenticated %}
-    <p><a href="{% url 'login' %}">Login</a></p>
-    <p><a href="{% url 'registro' %}">Registro</a></p>
-    {% endif %}
-
-    {% if user.is_authenticated %}
-    <p><a href="{% url 'perfil' %}">Perfil</a></p>
-    {% endif %} -->
-</body>
-</html>
+{% endblock %}

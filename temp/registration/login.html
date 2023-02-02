@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
 {% load widget_tweaks %}
 <html lang="en">
@@ -10,7 +11,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css.css' %}"/>
 </head>
 <body>
+    {% block conteudo %}
     <h2>Página de Login</h2>
+    <div class="login">
     <form method="POST">
         {% csrf_token %}   
         <p>Usuário: <input type="text" name="usuario"/></p>
@@ -18,5 +21,7 @@
         <p><input type="submit" value="Autenticar"/></p>
     </form>
     <p><a href="{% url 'home' %}"><button>Voltar</button></a></p>
+    </div>
+    {% endblock %}
 </body>
 </html>

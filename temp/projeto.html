@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +10,35 @@
     <title>Projetos</title>
 </head>
 <body>
-    
+    {% block conteudo %}
+    <div class="row m-5 text-center">
+        <h1>Projetos</h1>
+        <p class="cadastrar"><a href="{% url 'home'%"> Voltar a página inicial</a></p>
+    </div>
+
+    <div class="row m-5">
+        <p class="cadastrar"><a href="{% url 'cadastrar_projeto'%}">Cadastrar Projeto</a></p>
+        <p class="lista">Lista de Projetos Cadastrados</p>
+      {% for projeto in listar_projeto %}
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col-2">Nome</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="palavras">
+        <td>
+            <a href="{% url 'editar_projeto' projeto.id %}">Editar</a>
+            <a href="{% url 'remover_projeto' projeto.id %}">Remover</a>
+        </td>
+      </tr>
+        </tbody>
+    </table>
+    {% empty %}
+    <p>Nenhum Projeto Cadastrado</p>
+    {% endfor %}
+    </div>
+    {% endblock %}
 </body>
 </html>
