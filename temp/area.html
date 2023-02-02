@@ -18,11 +18,11 @@
       <div class="row m-5">
         <p class="cadastrar"><a href="{% url 'cadastrar_area'%}">Cadastrar Área</a></p>
         <p class="lista">Lista de Áreas Cadastradas</p>
-      {% for area in listar_area %}
+      {% for area in listar_area %} 
     <table class="table">
     <thead>
       <tr>
-        <th scope="col-2">Nome</th>
+        <th scope="col-2">Nome: {{area.nome}}</th>
       </tr>
     </thead>
     <tbody>

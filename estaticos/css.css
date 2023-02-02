@@ -37,5 +37,25 @@
 .distribuir{
     display: contents;
   }
+.cor{
+    background-color: rgb(83, 117, 119);
+    border-radius: 8px;
+      }
+body{
+    background-color: #8cc59a ;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    }
+h1{
+    font-family: Arial;
+    color:white;
+    text-align: center;
+    text-indent: 20px;
+    word-spacing: 2px;
+    font-weight: 800;
+    }
+p{
+    color:white;
+}
 
     

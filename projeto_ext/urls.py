@@ -22,6 +22,7 @@ from core.views import area_cadastrar, area_editar, area_listar, area_remover
 from core.views import vaga_cadastrar, vaga_listar, vaga_editar, vaga_remover
 from core.views import projeto_cadastrar, projeto_listar, projeto_editar, projeto_remover
 
+
 urlpatterns = [
     path('login/', autenticacao, name='login'),
     path('logout/', desconectar, name='logout'),
@@ -46,5 +47,6 @@ urlpatterns = [
     path('listar_projeto/', projeto_listar, name='listar_projeto'),
     path('editar_projeto/<int:id>/', projeto_editar, name='editar_projeto'),
     path('remover_projeto/<int:id>/', projeto_remover, name='remover_projeto'),
+
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -37,7 +37,7 @@ class Vagas(models.Model):
 
 
 # class Curso(models.Model):
-#     nome = models.CharField('nome', max_length=100)
+# nome = models.CharField('nome', max_length=100)
 
 
 
