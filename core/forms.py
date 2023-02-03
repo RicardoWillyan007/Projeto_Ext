@@ -21,4 +21,4 @@ class ProjetoForm(ModelForm):
 class VagaForm(ModelForm):
     class Meta:
         model = Vagas
-        fields = ['id', 'descricao', 'quantidade', 'perfil', 'ch', 'data_inicio', 'data_fim']
+        fields = ['id', 'descricao', 'quantidade', 'perfil', 'ch', 'data_inicio', 'data_fim', 'projeto']

@@ -28,6 +28,9 @@ class Projeto(models.Model):
     area = models.ForeignKey(Area, on_delete=models.PROTECT)
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
 
+    def __str__(self):
+        return self.titulo
+
 class Vagas(models.Model):
     descricao = models.CharField('descricao', max_length=100)
     quantidade = models.IntegerField('quantidade')
