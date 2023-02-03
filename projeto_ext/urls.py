@@ -39,7 +39,7 @@ urlpatterns = [
 
 
     path('add_vaga/', vaga_cadastrar, name='cadastrar_vaga'),
-    path('listar_vaga/', vaga_listar, name='listar_vaga'),
+    path('listar_vaga/', vaga_listar, name='listar_vagas'),
     path('editar_vaga/<int:id>/', vaga_editar, name='editar_vaga'),
     path('remover_vaga/<int:id>/', vaga_remover, name='remover_vaga'),
 

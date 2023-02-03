@@ -10,6 +10,7 @@
     <title>Vagas</title>
 </head>
 <body>
+  {% block conteudo %}
     <div class="row m-5 text-center">
         <h1>Vagas</h1>
         <p class="cadastrar"><a href="{% url 'home'%}">Voltar a pagina Inicial</a></p>
@@ -18,11 +19,11 @@
       <div class="row m-5">
         <p class="cadastrar"><a href="{% url 'cadastrar_vaga'%}">Cadastrar Vagas</a></p>
         <p class="lista">Lista de Vagas</p>
-      {% for vagas in listar_vaga %}
+      {% for vagas in listar_vagas %}
     <table class="table">
     <thead>
       <tr>
-        <th scope="col-2">Descrição</th>
+        <th scope="col-2">Descrição {{vaga.nome}}</th>
         <th scope="col-12">Quantidade</th>
         <th scope="col-12">Perfil</th>
         <th scope="col-12">CH</th>
@@ -33,8 +34,8 @@
     </thead>
     <tbody>
       <tr class="palavras">
-        <td><a href="{% url 'editar_vaga' area.id %}">EDITAR</a>
-            <a href="{% url 'remover_vaga' area.id %}">DELETAR</a></td>
+        <td><a href="{% url 'editar_vaga' vagas.id %}">EDITAR</a>
+            <a href="{% url 'remover_vaga' vagas.id %}">DELETAR</a></td>
       </tr>
     </tbody>
     </table>
@@ -43,5 +44,6 @@
       <p>Nenhuma vaga cadastrada</p>
       {% endfor %}
       </div>
+    {% endblock %}
 </body>
 </html>

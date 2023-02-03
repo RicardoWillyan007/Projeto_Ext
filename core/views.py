@@ -50,10 +50,10 @@ def area_remover(request, id):
     
 #Vagas
 def vaga_cadastrar(request):
-    form = VagaForm(request.POST or None, request.FILES or None)
+    form = VagaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('vagas_listar')
+        return redirect('listar_vagas')
     contexto = {
         'form': form
     }
@@ -82,7 +82,7 @@ def vaga_editar(request, id):
 def vaga_remover(request, id):
     areas = Vagas.objects.get(pk=id)
     areas.delete() 
-    return redirect('vagas_listar')
+    return redirect('listar_vagas')
 
 #projetos
 def projeto_cadastrar(request):
