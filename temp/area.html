@@ -10,6 +10,7 @@
     <title>Áreas Cadastradas</title>
 </head>
 <body>
+  {% block conteudo %}
     <div class="row m-5 text-center">
         <h1>Áreas</h1>
         <p class="cadastrar"><a href="{% url 'home'%}">Voltar a pagina Inicial</a></p>
@@ -37,5 +38,6 @@
       <p>Nenhuma área cadastrada</p>
       {% endfor %}
       </div>
+    {% endblock %}
 </body>
 </html>

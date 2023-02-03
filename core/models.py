@@ -19,6 +19,9 @@ class Usuario(AbstractUser):
 class Area(models.Model):
     nome = models.CharField('nome', max_length=100)
 
+    def __str__(self):
+        return self.nome
+
 class Projeto(models.Model):
     titulo = models.CharField('titulo', max_length=100)
     resumo = models.CharField('resumo', max_length=100)
